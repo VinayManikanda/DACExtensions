@@ -17,6 +17,13 @@ namespace Public.Dac.Samples.App
         , SourceOnly
         , DestinationOnly
     }
+    /// <summary>
+    /// Basic demo class showing results of comparing Two Dacpacs and also filters the Dacpacs and removes specific schema
+    /// The Output includes:
+    /// Identical SQL objects which exists on both the Dacpacs but have some differences in schema/T-SQL code
+    /// SQL objects which exists on the Source Dacpac only
+    /// SQL objects which exits on the destination Dacpac only
+    /// </summary>
     internal class ModelCompareDacs
     {
         private static string _sourceDacpacPath;
@@ -119,8 +126,6 @@ namespace Public.Dac.Samples.App
 
                     if (!destt.GetScript().Equals(sourcet.GetScript()))
                     {
-                        //save the source script
-                        //save the destination script
                         SaveScriptToFile(sourcet, Outcome.Source);
                         SaveScriptToFile(destt, Outcome.Destination);
                     }
@@ -140,7 +145,6 @@ namespace Public.Dac.Samples.App
 
             foreach (var t in tsqldestobj)
             {
-                Console.WriteLine($"{t.Name}");
                 SaveScriptToFile(t, Outcome.DestinationOnly);
             }
 
