@@ -19,10 +19,10 @@ namespace Public.Dac.Samples.App
     }
     /// <summary>
     /// Basic demo class showing results of comparing Two Dacpacs and also filters the Dacpacs and removes specific schema
-    /// The Output includes:
-    /// Identical SQL objects which exists on both the Dacpacs but have some differences in schema/T-SQL code
+    /// The output includes:
+    /// Any identical SQL objects which exists on both the Dacpacs but have some differences in schema/T-SQL code
     /// SQL objects which exists on the Source Dacpac only
-    /// SQL objects which exits on the destination Dacpac only
+    /// SQL objects which exists on the Destination Dacpac only
     /// </summary>
     internal class ModelCompareDacs
     {
