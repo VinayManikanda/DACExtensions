@@ -36,7 +36,8 @@ namespace Public.Dac.Samples.App
             RunEndToEnd,
             FilterModel,
             RunCodeAnalysis,
-            ValidateQuerySemantically
+            ValidateQuerySemantically,
+            CompareDacs
         }
 
         static void Main(string[] args)
@@ -65,8 +66,12 @@ Current actions:
                 case Behavior.ValidateQuerySemantically:
                     RunValidateQuerySemanticallyExample.Run();
                     break;
-                    // To test deployment plan-based filtering see the TestFiltering.TestFilterPlanWhenPublishing() unit test
+                // To test deployment plan-based filtering see the TestFiltering.TestFilterPlanWhenPublishing() unit test
+                case Behavior.CompareDacs:
+                    ModelCompareDacs.Run();
+                    break;
             }
+
 
             Console.WriteLine("Press any key to finish");
             Console.ReadKey();
@@ -92,6 +97,10 @@ Current actions:
                 if (MatchesBehavior(args[0], Behavior.ValidateQuerySemantically))
                 {
                     behavior = Behavior.ValidateQuerySemantically;
+                }
+                if (MatchesBehavior(args[0], Behavior.CompareDacs))
+                {
+                    behavior = Behavior.CompareDacs;
                 }
             }
             return behavior;
